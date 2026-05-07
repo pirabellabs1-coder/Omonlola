@@ -25,3 +25,5 @@ admin.html
 *.log
 dev.log
 .tmp_*
+
+.vercel

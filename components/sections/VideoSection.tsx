@@ -31,21 +31,21 @@ export default function VideoSection() {
   };
 
   return (
-    <section id="video" className="py-24 md:py-32 relative bg-dark border-t border-white/5 overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand/10 blur-[150px] rounded-full pointer-events-none z-0" />
+    <section id="video" className="py-20 md:py-24 relative bg-dark border-t border-white/5 overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-brand/10 blur-[140px] rounded-full pointer-events-none z-0" />
 
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
-        <div className="text-center mb-12 max-w-3xl mx-auto">
-          <div className="text-xs font-bold tracking-[0.2em] text-brand mb-4 uppercase">Showreel</div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">
+        <div className="text-center mb-10 max-w-2xl mx-auto">
+          <div className="text-xs font-bold tracking-[0.2em] text-brand mb-3 uppercase">Showreel</div>
+          <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
             Découvrez ma <span className="text-brand-gradient italic">méthode en vidéo.</span>
           </h2>
-          <p className="text-text-muted text-lg">
-            En 90 secondes, je vous montre comment je transforme un compte Meta Ads en machine à acquisition rentable.
+          <p className="text-text-muted text-base">
+            En 90 secondes, comment je transforme un compte Meta Ads en machine à acquisition rentable.
           </p>
         </div>
 
-        <div className="video-frame group aspect-video relative">
+        <div className="video-frame group aspect-video relative max-w-3xl mx-auto">
           <video
             ref={videoRef}
             className="w-full h-full object-cover"

@@ -35,7 +35,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <a
               href="#contact"
-              className="hidden md:flex magnetic-btn px-6 py-3 rounded-full bg-white text-black text-sm font-bold items-center gap-2 hoverable shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+              className="hidden lg:flex magnetic-btn px-6 py-3 rounded-full bg-white text-black text-sm font-bold items-center gap-2 hoverable shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             >
               Démarrer un projet <ArrowRight className="w-4 h-4" />
             </a>

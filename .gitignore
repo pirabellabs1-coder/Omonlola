@@ -1,0 +1,27 @@
+node_modules/
+.next/
+out/
+build/
+.DS_Store
+*.pem
+.env*.local
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# Local data store (server-side persistence in dev)
+.data/
+
+# Local uploads (use Vercel Blob in prod)
+public/uploads/*
+!public/uploads/.gitkeep
+!public/uploads/README.md
+
+# Old static HTML files (replaced by Next.js)
+landing.html
+admin.html
+
+# Editor / OS noise
+*.log
+dev.log
+.tmp_*

@@ -8,8 +8,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', "sans-serif"],
-        display: ['"Space Grotesk"', "sans-serif"]
+        sans: ["var(--font-sans)", '"Plus Jakarta Sans"', "sans-serif"],
+        display: ["var(--font-display)", '"Space Grotesk"', "sans-serif"]
       },
       colors: {
         dark: {

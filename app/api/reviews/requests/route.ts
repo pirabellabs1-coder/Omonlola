@@ -8,6 +8,8 @@ import { requireAuth } from "@/lib/auth";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
+  const unauth = await requireAuth();
+  if (unauth) return unauth;
   const all = await listAll<ReviewRequest>(STORE.reviewRequests);
   return NextResponse.json(all);
 }

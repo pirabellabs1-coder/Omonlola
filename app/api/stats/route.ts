@@ -198,9 +198,9 @@ export async function GET() {
     }
   }
   const leadsBySource = new Map<string, number>();
-  for (const l of leads) {
-    // We do not have session tracking on lead submissions yet; approximate by 1 lead = 1 source bucket
-    // Use the first known visiting source as a fallback bucket "Direct"
+  // We do not have session tracking on lead submissions yet; approximate by
+  // attributing every lead to the "Direct" bucket as a conservative fallback.
+  for (let i = 0; i < leads.length; i++) {
     leadsBySource.set("Direct", (leadsBySource.get("Direct") ?? 0) + 1);
   }
   const sourcesPerf = Array.from(sourceCount.keys())

@@ -74,6 +74,7 @@ export default function CasesPage() {
 
   useEffect(() => {
     refresh();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const remove = async (item: CaseItem) => {

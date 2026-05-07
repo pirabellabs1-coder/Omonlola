@@ -60,15 +60,25 @@ function useChart(config: ChartConfiguration | null) {
   return ref;
 }
 
-function gradient(canvas: HTMLCanvasElement | null, color: string, alpha: string) {
-  if (!canvas) return undefined;
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return undefined;
-  const g = ctx.createLinearGradient(0, 0, 0, 250);
-  g.addColorStop(0, color);
-  g.addColorStop(1, alpha);
-  return g;
+/**
+ * Pattern wrapper: always call useChart at the top of the component, then
+ * conditionally render either the canvas or the empty state. This keeps Hook
+ * order stable across renders.
+ */
+function ChartCanvas({
+  config,
+  emptyLabel,
+  isEmpty
+}: {
+  config: ChartConfiguration | null;
+  emptyLabel: string;
+  isEmpty: boolean;
+}) {
+  const ref = useChart(isEmpty ? null : config);
+  if (isEmpty) return <EmptyChart label={emptyLabel} />;
+  return <canvas ref={ref} />;
 }
+
 
 /* ===================== Public charts ===================== */
 
@@ -175,66 +185,70 @@ export function Traffic12mChart({
 
 export function BudgetsDoughnut({ data }: { data: { label: string; value: number }[] }) {
   const colors = [C.orange, C.brand, C.green, C.cyan, C.rose, C.purple];
-  if (data.length === 0) return <EmptyChart label="Pas encore de données" />;
-  const ref = useChart({
-    type: "doughnut",
-    data: {
-      labels: data.map((d) => d.label),
-      datasets: [
-        {
-          data: data.map((d) => d.value),
-          backgroundColor: data.map((_, i) => colors[i % colors.length]),
-          borderColor: "#030303",
-          borderWidth: 2,
-          hoverOffset: 8
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          position: "bottom",
-          labels: { boxWidth: 10, font: { size: 11 }, color: "#A1A1AA", padding: 12 }
+  const isEmpty = data.length === 0;
+  const config = isEmpty
+    ? null
+    : ({
+        type: "doughnut",
+        data: {
+          labels: data.map((d) => d.label),
+          datasets: [
+            {
+              data: data.map((d) => d.value),
+              backgroundColor: data.map((_, i) => colors[i % colors.length]),
+              borderColor: "#030303",
+              borderWidth: 2,
+              hoverOffset: 8
+            }
+          ]
         },
-        tooltip: { enabled: true }
-      }
-    } as ChartConfiguration["options"]
-  } as ChartConfiguration);
-  return <canvas ref={ref} />;
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: { boxWidth: 10, font: { size: 11 }, color: "#A1A1AA", padding: 12 }
+            },
+            tooltip: { enabled: true }
+          }
+        } as ChartConfiguration["options"]
+      } as ChartConfiguration);
+  return <ChartCanvas config={config} isEmpty={isEmpty} emptyLabel="Pas encore de données" />;
 }
 
 export function SourcesDoughnut({ data }: { data: { label: string; value: number }[] }) {
   const colors = [C.brand, C.green, C.cyan, C.orange, C.rose, C.purple];
-  if (data.length === 0) return <EmptyChart label="Aucune visite encore" />;
-  const ref = useChart({
-    type: "doughnut",
-    data: {
-      labels: data.map((d) => d.label),
-      datasets: [
-        {
-          data: data.map((d) => d.value),
-          backgroundColor: data.map((_, i) => colors[i % colors.length]),
-          borderColor: "#030303",
-          borderWidth: 2,
-          hoverOffset: 8
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          position: "bottom",
-          labels: { boxWidth: 10, font: { size: 11 }, color: "#A1A1AA", padding: 12 }
+  const isEmpty = data.length === 0;
+  const config = isEmpty
+    ? null
+    : ({
+        type: "doughnut",
+        data: {
+          labels: data.map((d) => d.label),
+          datasets: [
+            {
+              data: data.map((d) => d.value),
+              backgroundColor: data.map((_, i) => colors[i % colors.length]),
+              borderColor: "#030303",
+              borderWidth: 2,
+              hoverOffset: 8
+            }
+          ]
         },
-        tooltip: { enabled: true }
-      }
-    } as ChartConfiguration["options"]
-  } as ChartConfiguration);
-  return <canvas ref={ref} />;
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: { boxWidth: 10, font: { size: 11 }, color: "#A1A1AA", padding: 12 }
+            },
+            tooltip: { enabled: true }
+          }
+        } as ChartConfiguration["options"]
+      } as ChartConfiguration);
+  return <ChartCanvas config={config} isEmpty={isEmpty} emptyLabel="Aucune visite encore" />;
 }
 
 export function GeoDoughnut({ data }: { data: { label: string; value: number }[] }) {
@@ -246,77 +260,66 @@ export function SourcesPerfBar({
 }: {
   data: { label: string; visits: number; leads: number; rate: number }[];
 }) {
-  if (data.length === 0) return <EmptyChart label="Aucune donnée encore" />;
-  const ref = useChart({
-    type: "bar",
-    data: {
-      labels: data.map((d) => d.label),
-      datasets: [
-        {
-          label: "Visites",
-          data: data.map((d) => d.visits),
-          backgroundColor: C.brand,
-          borderRadius: 4
+  const isEmpty = data.length === 0;
+  const config: ChartConfiguration | null = isEmpty
+    ? null
+    : {
+        type: "bar",
+        data: {
+          labels: data.map((d) => d.label),
+          datasets: [
+            { label: "Visites", data: data.map((d) => d.visits), backgroundColor: C.brand, borderRadius: 4 },
+            { label: "Leads", data: data.map((d) => d.leads), backgroundColor: C.cyan, borderRadius: 4 },
+            { label: "Conv. (%)", data: data.map((d) => d.rate), backgroundColor: C.green, borderRadius: 4 }
+          ]
         },
-        {
-          label: "Leads",
-          data: data.map((d) => d.leads),
-          backgroundColor: C.cyan,
-          borderRadius: 4
-        },
-        {
-          label: "Conv. (%)",
-          data: data.map((d) => d.rate),
-          backgroundColor: C.green,
-          borderRadius: 4
+        options: {
+          indexAxis: "y" as const,
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { boxWidth: 10, font: { size: 11 }, color: "#A1A1AA" } },
+            tooltip: { enabled: true }
+          },
+          scales: {
+            x: { grid: baseGrid, ticks: baseTicks, beginAtZero: true },
+            y: { grid: { display: false }, ticks: baseTicks }
+          }
         }
-      ]
-    },
-    options: {
-      indexAxis: "y" as const,
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { labels: { boxWidth: 10, font: { size: 11 }, color: "#A1A1AA" } },
-        tooltip: { enabled: true }
-      },
-      scales: {
-        x: { grid: baseGrid, ticks: baseTicks, beginAtZero: true },
-        y: { grid: { display: false }, ticks: baseTicks }
-      }
-    }
-  });
-  return <canvas ref={ref} />;
+      };
+  return <ChartCanvas config={config} isEmpty={isEmpty} emptyLabel="Aucune donnée encore" />;
 }
 
 export function FunnelBar({ data }: { data: { label: string; value: number }[] }) {
   const colors = [C.brand, C.brandLight, C.cyan, C.green];
-  if (data.every((d) => d.value === 0)) return <EmptyChart label="Aucune donnée encore" />;
-  const ref = useChart({
-    type: "bar",
-    data: {
-      labels: data.map((d) => d.label),
-      datasets: [
-        {
-          label: "Volume",
-          data: data.map((d) => d.value),
-          backgroundColor: data.map((_, i) => colors[i % colors.length]),
-          borderRadius: 6,
-          barThickness: 32
+  const isEmpty = data.every((d) => d.value === 0);
+  const config: ChartConfiguration | null = isEmpty
+    ? null
+    : {
+        type: "bar",
+        data: {
+          labels: data.map((d) => d.label),
+          datasets: [
+            {
+              label: "Volume",
+              data: data.map((d) => d.value),
+              backgroundColor: data.map((_, i) => colors[i % colors.length]),
+              borderRadius: 6,
+              barThickness: 32
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false }, tooltip: { enabled: true } },
+          scales: {
+            x: { grid: { display: false }, ticks: baseTicks },
+            y: { grid: baseGrid, ticks: { ...baseTicks, precision: 0 }, beginAtZero: true }
+          }
         }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: { enabled: true } },
-      scales: {
-        x: { grid: { display: false }, ticks: baseTicks },
-        y: { grid: baseGrid, ticks: { ...baseTicks, precision: 0 }, beginAtZero: true }
-      }
-    }
-  });
-  return <canvas ref={ref} />;
+      };
+  return <ChartCanvas config={config} isEmpty={isEmpty} emptyLabel="Aucune donnée encore" />;
 }
 
 export function WeeklyLeadsBar({ data }: { data: { label: string; leads: number }[] }) {

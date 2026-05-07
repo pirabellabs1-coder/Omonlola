@@ -3,20 +3,24 @@ import { NextRequest, NextResponse } from "next/server";
 const COOKIE = "omonlola_session";
 
 const PUBLIC_API_EXACT = new Set([
-  "/api/track",
-  "/api/lead-magnet",
   "/api/auth/login",
   "/api/auth/logout",
   "/api/auth/me"
 ]);
 
+// Endpoints that are public ONLY for specific methods
+const PUBLIC_API_METHODS: Record<string, Set<string>> = {
+  "/api/contact": new Set(["POST"]),
+  "/api/lead-magnet": new Set(["POST"]),
+  "/api/track": new Set(["POST"])
+};
+
 const PUBLIC_API_PREFIX = ["/api/reviews/by-token/"];
 
 function isPublicApi(pathname: string, method: string): boolean {
   if (PUBLIC_API_EXACT.has(pathname)) return true;
+  if (PUBLIC_API_METHODS[pathname]?.has(method)) return true;
   if (PUBLIC_API_PREFIX.some((p) => pathname.startsWith(p))) return true;
-  // Public form submission for the contact form on the homepage
-  if (pathname === "/api/contact" && method === "POST") return true;
   return false;
 }
 

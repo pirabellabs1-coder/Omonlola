@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { appendItem, listAll, newId, replaceAll } from "@/lib/store";
+import { requireAuth } from "@/lib/auth";
 import { STORE, type TrackEvent } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -36,6 +37,8 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
+  const unauth = await requireAuth();
+  if (unauth) return unauth;
   const all = await listAll<TrackEvent>(STORE.track);
   return NextResponse.json(all);
 }

@@ -28,7 +28,7 @@ export default function Problem() {
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <div className="text-xs font-bold tracking-[0.2em] text-danger mb-4 uppercase">Le Constat</div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">
+          <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">
             Pourquoi vos campagnes <br />
             <span className="text-danger-gradient italic">ne performent plus en 2026.</span>
           </h2>

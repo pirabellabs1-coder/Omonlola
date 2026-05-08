@@ -52,7 +52,7 @@ export default function Contact({ whatsapp }: { whatsapp?: string }) {
 
       <div className="max-w-[1200px] mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-16 items-center">
         <div className="lg:w-1/2 text-center lg:text-left">
-          <h2 className="font-display font-bold text-4xl md:text-6xl mb-6 leading-tight">
+          <h2 className="font-display font-bold text-3xl md:text-5xl mb-6 leading-tight">
             Prêt à optimiser votre <span className="text-brand-gradient">ROAS ?</span>
           </h2>
           <p className="text-text-muted text-lg mb-10 max-w-lg mx-auto lg:mx-0">

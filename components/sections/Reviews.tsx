@@ -19,7 +19,7 @@ export default function Reviews({ items }: { items: Review[] }) {
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <div className="text-xs font-bold tracking-[0.2em] text-brand mb-4 uppercase">Témoignages</div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl mb-4">
+          <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
             Ce que mes clients <span className="text-brand-gradient italic">disent.</span>
           </h2>
           <p className="text-text-muted text-lg">

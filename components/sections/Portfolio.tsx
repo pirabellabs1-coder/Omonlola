@@ -70,7 +70,7 @@ export default function Portfolio({ items }: { items: CaseItem[] }) {
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="text-center mb-14">
             <div className="text-xs font-bold tracking-[0.2em] text-brand mb-4 uppercase">Études de cas</div>
-            <h2 className="font-display font-bold text-4xl md:text-5xl mb-8">
+            <h2 className="font-display font-bold text-3xl md:text-4xl mb-8">
               Ce que les chiffres <span className="text-brand-gradient italic">disent.</span>
             </h2>
             <div className="flex flex-wrap justify-center gap-2 md:gap-3">
@@ -269,7 +269,7 @@ function CaseModal({ item, onClose }: { item: CaseItem | null; onClose: () => vo
                   </div>
                 )}
               </div>
-              <h2 className="font-display font-bold text-3xl md:text-5xl text-white leading-tight max-w-3xl">
+              <h2 className="font-display font-bold text-2xl md:text-4xl text-white leading-tight max-w-3xl">
                 {item.title}
               </h2>
             </div>

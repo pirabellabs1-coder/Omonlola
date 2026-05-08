@@ -43,7 +43,7 @@ export default function Process() {
       <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 relative items-start">
         <div className="sticky top-32">
           <div className="text-xs font-bold tracking-[0.2em] text-brand mb-4 uppercase">Méthodologie</div>
-          <h2 className="font-display font-bold text-4xl md:text-6xl mb-6">
+          <h2 className="font-display font-bold text-3xl md:text-5xl mb-6">
             Le Process <br />
             <span className="text-brand">Omonlola.</span>
           </h2>

@@ -8,7 +8,7 @@ export default function Pricing({ items }: { items: PricingPlan[] }) {
     <section id="pricing" className="py-24 relative bg-dark border-t border-white/5">
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-display font-bold text-4xl mb-4">
+          <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
             Investissez dans du trafic <span className="text-brand-gradient italic">qui convertit.</span>
           </h2>
           <p className="text-text-muted text-sm">Des offres claires pour chaque besoin. Sans engagement de durée.</p>

@@ -27,7 +27,7 @@ export async function POST(request: Request) {
 
   await appendItem<LeadMagnetEntry>(STORE.leadMagnet, entry);
   await logActivity("Téléchargement guide", email);
-  return NextResponse.json({ ok: true, fileUrl: "/guides/5-erreurs-meta-ads.pdf" });
+  return NextResponse.json({ ok: true, fileUrl: "/api/guide" });
 }
 
 export async function GET() {

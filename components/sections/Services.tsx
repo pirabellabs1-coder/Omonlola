@@ -31,7 +31,7 @@ export default function Services() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
             <div className="text-xs font-bold tracking-[0.2em] text-brand mb-4 uppercase">Expertise</div>
-            <h2 className="font-display font-bold text-4xl md:text-5xl">
+            <h2 className="font-display font-bold text-3xl md:text-4xl">
               Ce que je fais <span className="text-brand-gradient italic">pour vous.</span>
             </h2>
           </div>

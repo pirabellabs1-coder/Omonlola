@@ -25,12 +25,7 @@ export default function LeadMagnet() {
       const data = (await res.json()) as { fileUrl?: string };
       trackEvent("lead_magnet_submit_success");
       if (data.fileUrl) {
-        const a = document.createElement("a");
-        a.href = data.fileUrl;
-        a.download = "5-erreurs-meta-ads.pdf";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
+        window.location.href = data.fileUrl;
       }
       toast("Téléchargement du PDF en cours…", "check");
       setEmail("");
@@ -61,7 +56,7 @@ export default function LeadMagnet() {
 
         <div className="lg:w-1/2 text-center lg:text-left gsap-reveal">
           <div className="text-xs font-bold tracking-[0.2em] text-brand mb-4 uppercase">Ressource Gratuite</div>
-          <h2 className="font-display font-bold text-4xl mb-4">Téléchargez notre guide stratégique.</h2>
+          <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">Téléchargez notre guide stratégique.</h2>
           <p className="text-text-muted text-lg mb-8 max-w-md mx-auto lg:mx-0">
             Un PDF de 12 pages décortiquant les erreurs qui coûtent le plus cher aux annonceurs cette année.
           </p>

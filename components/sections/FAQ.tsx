@@ -24,7 +24,7 @@ export default function FAQ({ items }: { items: FaqItem[] }) {
           <div className="text-xs font-bold tracking-[0.2em] text-brand mb-4 uppercase flex items-center justify-center gap-2">
             <HelpCircle className="w-4 h-4" /> FAQ
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">
+          <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">
             Questions <span className="text-brand-gradient italic">fréquentes.</span>
           </h2>
           <p className="text-text-muted text-lg">Tout ce que vous devez savoir avant de démarrer.</p>

@@ -20,7 +20,7 @@ export default function RoiCalculator() {
       <div className="max-w-[1000px] mx-auto px-6 relative z-10 flex flex-col md:flex-row gap-12 items-center">
         <div className="md:w-1/2">
           <div className="text-xs font-bold tracking-[0.2em] text-brand mb-4 uppercase">Simulateur</div>
-          <h2 className="font-display font-bold text-4xl mb-4">
+          <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
             Simulez votre <span className="text-brand-gradient">potentiel.</span>
           </h2>
           <p className="text-text-muted text-sm mb-8">

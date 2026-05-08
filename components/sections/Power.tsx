@@ -6,7 +6,7 @@ export default function Power() {
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <div className="text-xs font-bold tracking-[0.2em] text-brand mb-4 uppercase">La Solution</div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">
+          <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">
             Meta n&apos;est pas mort. <br />
             <span className="text-brand-gradient italic">Il a juste besoin d&apos;une stratégie adaptée.</span>
           </h2>

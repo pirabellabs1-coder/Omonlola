@@ -7,6 +7,7 @@ import Compare from "@/components/sections/Compare";
 import Contact from "@/components/sections/Contact";
 import FAQ from "@/components/sections/FAQ";
 import Hero from "@/components/sections/Hero";
+import Industries from "@/components/sections/Industries";
 import LeadMagnet from "@/components/sections/LeadMagnet";
 import Manifesto from "@/components/sections/Manifesto";
 import Portfolio from "@/components/sections/Portfolio";
@@ -18,6 +19,7 @@ import Qualification from "@/components/sections/Qualification";
 import Reviews from "@/components/sections/Reviews";
 import RoiCalculator from "@/components/sections/RoiCalculator";
 import Services from "@/components/sections/Services";
+import Stats from "@/components/sections/Stats";
 import VideoSection from "@/components/sections/VideoSection";
 import {
   getPublishedCases,
@@ -48,23 +50,20 @@ export default async function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        {/* Section vidéo demandée — juste après le Hero */}
         <VideoSection />
+        <Stats />
         <Problem />
         <Manifesto />
         <Power />
         <Services />
         <RoiCalculator />
         <Process />
-        {/* Réalisations — pilotées par l'admin */}
         <Portfolio items={cases} />
         <Compare />
+        <Industries />
         <Qualification />
-        {/* Tarifs — pilotés par l'admin */}
         <Pricing items={pricing} />
-        {/* Témoignages — pilotés par l'admin */}
         <Reviews items={reviews} />
-        {/* FAQ — pilotée par l'admin */}
         <FAQ items={faq} />
         <LeadMagnet />
         <Contact whatsapp={settings.whatsapp || undefined} />

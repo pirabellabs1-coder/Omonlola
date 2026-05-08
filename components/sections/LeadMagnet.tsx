@@ -22,8 +22,17 @@ export default function LeadMagnet() {
         body: JSON.stringify({ email })
       });
       if (!res.ok) throw new Error("failed");
+      const data = (await res.json()) as { fileUrl?: string };
       trackEvent("lead_magnet_submit_success");
-      toast("Le PDF a été envoyé à votre adresse !", "check");
+      if (data.fileUrl) {
+        const a = document.createElement("a");
+        a.href = data.fileUrl;
+        a.download = "5-erreurs-meta-ads.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+      toast("Téléchargement du PDF en cours…", "check");
       setEmail("");
     } catch {
       trackEvent("lead_magnet_submit_error");

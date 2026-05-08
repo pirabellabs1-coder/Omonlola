@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, Zap } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -12,14 +13,13 @@ export default function Footer() {
 
       <div className="max-w-[1200px] mx-auto px-6 relative z-10 flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
         <Link href="/" className="font-display font-bold text-2xl flex items-center gap-2">
-          <Zap className="text-brand w-6 h-6" />
+          <Image src="/logo.svg" alt="" width={32} height={32} className="w-8 h-8" />
           <span className="text-white tracking-tight">Omonlola</span>
-          <span className="text-brand">AI</span>
         </Link>
       </div>
 
       <div className="max-w-[1200px] mx-auto px-6 relative z-10 border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-muted font-mono uppercase">
-        <p>© {new Date().getFullYear()} Omonlola AI. Tous droits réservés.</p>
+        <p>© {new Date().getFullYear()} Omonlola. Tous droits réservés.</p>
 
         <a
           href="https://pirabellabs.com"

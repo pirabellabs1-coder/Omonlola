@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   BarChart3,
   Clock,
@@ -10,8 +11,7 @@ import {
   LogOut,
   MessageSquare,
   Settings,
-  Tag,
-  Zap
+  Tag
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -84,9 +84,8 @@ export default function Sidebar({
       >
         <div className="h-20 flex items-center px-6 border-b border-white/5 shrink-0">
           <div className="font-bold text-xl flex items-center gap-2">
-            <Zap className="text-brand w-5 h-5" />
+            <Image src="/logo.svg" alt="" width={28} height={28} className="w-7 h-7" />
             <span className="text-white tracking-tight">Omonlola</span>
-            <span className="text-brand">AI</span>
           </div>
         </div>
 

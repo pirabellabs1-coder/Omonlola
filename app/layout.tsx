@@ -38,8 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: s.seoTitle,
       description: s.seoDescription,
       ...(og ? { images: [og] } : {})
-    },
-    icons: { icon: "/favicon.ico" }
+    }
   };
 }
 

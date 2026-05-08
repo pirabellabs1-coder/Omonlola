@@ -7,7 +7,7 @@ import ReviewForm from "./ReviewForm";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Laisser un témoignage | Omonlola AI",
+  title: "Laisser un témoignage | Omonlola",
   robots: { index: false, follow: false }
 };
 
@@ -27,7 +27,6 @@ export default async function ReviewPage({ params }: { params: { token: string }
       <header className="relative z-10 px-6 py-6 flex items-center justify-between border-b border-white/5">
         <Link href="/" className="font-display font-bold text-lg flex items-center gap-2">
           <span className="text-white">Omonlola</span>
-          <span className="text-brand">AI</span>
         </Link>
         <div className="text-xs text-text-muted flex items-center gap-2">
           <ShieldCheck className="w-3 h-3" /> Lien sécurisé
@@ -67,7 +66,7 @@ export default async function ReviewPage({ params }: { params: { token: string }
       </main>
 
       <footer className="relative z-10 px-6 py-4 border-t border-white/5 text-center text-[10px] uppercase tracking-widest text-text-muted">
-        © {new Date().getFullYear()} Omonlola AI
+        © {new Date().getFullYear()} Omonlola
       </footer>
     </div>
   );

@@ -204,7 +204,6 @@ export default function ClientChrome() {
           <div className="flex flex-col items-center">
             <div className="font-display font-bold text-4xl mb-8 flex items-center gap-2">
               <span className="text-white">Omonlola</span>
-              <span className="text-brand">AI</span>
             </div>
             <div className="w-64 h-[2px] bg-white/10 relative overflow-hidden rounded-full">
               <div

@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, Calculator, Menu, X, Zap } from "lucide-react";
+import { ArrowRight, Calculator, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -15,11 +16,8 @@ export default function Navbar() {
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 md:h-24 flex items-center justify-between">
           <Link href="/" className="font-display font-bold text-xl md:text-2xl flex items-center gap-2 hoverable">
-            <div className="w-8 h-8 rounded-lg bg-brand/10 border border-brand/30 flex items-center justify-center">
-              <Zap className="w-4 h-4 text-brand" />
-            </div>
+            <Image src="/logo.svg" alt="" width={32} height={32} className="w-8 h-8" priority />
             <span className="text-white tracking-tight">Omonlola</span>
-            <span className="text-brand">AI</span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-8 text-sm font-semibold text-text-muted">
@@ -35,7 +33,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <a
               href="#contact"
-              className="hidden lg:flex magnetic-btn px-6 py-3 rounded-full bg-white text-black text-sm font-bold items-center gap-2 hoverable shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+              className="!hidden lg:!flex magnetic-btn px-6 py-3 rounded-full bg-white text-black text-sm font-bold items-center gap-2 hoverable shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             >
               Démarrer un projet <ArrowRight className="w-4 h-4" />
             </a>

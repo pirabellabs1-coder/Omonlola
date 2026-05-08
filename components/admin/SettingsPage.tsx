@@ -132,7 +132,7 @@ export default function SettingsPage() {
               type="text"
               value={form.seoTitle}
               onChange={(e) => setForm({ ...form, seoTitle: e.target.value })}
-              placeholder="Omonlola AI | Meta Ads Specialist"
+              placeholder="Omonlola | Meta Ads Specialist"
               className="w-full input-style rounded-lg px-4 py-3 text-sm"
             />
           </Field>

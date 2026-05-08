@@ -1,4 +1,4 @@
-# Omonlola AI
+# Omonlola
 
 Site Next.js + back-office sécurisé pour la gestion du contenu (réalisations, témoignages, FAQ, tarifs, leads, paramètres SEO).
 

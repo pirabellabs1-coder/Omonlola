@@ -26,7 +26,7 @@ export default function Compare() {
           <div className="grid grid-cols-3 bg-white/5 border-b border-white/10">
             <div className="p-6 font-bold text-white" />
             <div className="p-6 font-display font-bold text-brand text-center border-l border-white/10">
-              Omonlola AI
+              Omonlola
             </div>
             <div className="p-6 font-display font-bold text-text-muted text-center border-l border-white/10">
               Grosses Agences

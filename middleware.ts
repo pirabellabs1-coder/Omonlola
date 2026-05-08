@@ -12,7 +12,8 @@ const PUBLIC_API_EXACT = new Set([
 const PUBLIC_API_METHODS: Record<string, Set<string>> = {
   "/api/contact": new Set(["POST"]),
   "/api/lead-magnet": new Set(["POST"]),
-  "/api/track": new Set(["POST"])
+  "/api/track": new Set(["POST"]),
+  "/api/guide": new Set(["GET"])
 };
 
 const PUBLIC_API_PREFIX = ["/api/reviews/by-token/"];

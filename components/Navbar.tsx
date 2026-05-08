@@ -69,16 +69,8 @@ export default function Navbar() {
                 <Calculator className="w-4 h-4 inline mr-2" /> Simulateur ROI
               </MobLink>
               <MobLink onClick={() => setOpen(false)} href="#pricing">Tarifs</MobLink>
+              <MobLink onClick={() => setOpen(false)} href="#contact">Contact</MobLink>
             </nav>
-            <div className="p-4 border-t border-white/5">
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="w-full py-3 rounded-xl bg-brand text-white font-bold text-sm text-center flex items-center justify-center gap-2"
-              >
-                Démarrer un projet <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
           </div>
         </div>
       )}
